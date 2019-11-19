@@ -10873,8 +10873,7 @@ LIGHTNINGAa1:set('LIGHTNING:'..bot_id..'id:user'..msg.chat_id_,LIGHTNING0)
 LIGHTNINGAa1:setex('LIGHTNING:'..bot_id.."numadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 10000, true)  
 LIGHTNINGAa(msg.chat_id_, msg.id_, 1, "💌 ┇ ارسل عدد الرسائل المطلوبه لاضافتها للمستخدم, "md")
 LIGHTNINGAa(msg.chat_id_, msg.id_, 1,Anwar, 1, 'md') 
-end 
----------------LIGHTNING
+end
 if is_leader(msg) then
 local text = msg.content_.text_:gsub("[Ss]etprice", "Setnerkh")
 if text:match("^[Ss]etnerkh$") or text:match("^ضع كليشه المطور$") then
@@ -10958,6 +10957,6 @@ end
 -----------------------------------------LIGHTNING------------------------------------------------------ 
 end 
 -- END VERSION LIGHTNING TEAM 
--- all the file by LIGHTNING TEXAM @ii8ili 
--- join in chennel @i_7xx
--- join in chennel @i_7xx
+-- all the file by LIGHTNING @PPPPK
+-- join in chennel @i_7XX
+-- join in chennel @i_7XX
