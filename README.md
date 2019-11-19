@@ -10,8 +10,7 @@
 
 🔘║ضعه في آلترمنال وآضغط Enter •
 
-git clone https://github.com/PPPPKLIGHTNING/LIGHTNING.git && cd LIGHTNING  && chmod +x tg && chmod +x LIGHTNING.sh && chmod +x SP && ./LIGHTNING.sh
-
+`git clone https://github.com/PPPPKLIGHTNING/LIGHTNING.git && cd LIGHTNING  && chmod +x tg && chmod +x LIGHTNING.sh && chmod +x SP && ./LIGHTNING.sh`
 ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─
 
 🧲║راح يطلب منك معلومات الاتيه •
