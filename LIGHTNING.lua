@@ -10871,7 +10871,7 @@ if text and text:match("^اضف رسائل (%d+)$") and is_monsh(msg.sender_user
 LIGHTNING0 = text:match("^اضف رسائل (%d+)$")
 LIGHTNINGAa1:set('LIGHTNING:'..bot_id..'id:user'..msg.chat_id_,LIGHTNING0)  
 LIGHTNINGAa1:setex('LIGHTNING:'..bot_id.."numadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 10000, true)  
-LIGHTNINGAa(msg.chat_id_, msg.id_, 1, "💌 ┇ ارسل عدد الرسائل المطلوبه لاضافتها للمستخدم, "md")
+LIGHTNINGAa(msg.chat_id_, msg.id_, 1, "💌 ┇ارسل عدد الرسائل المطلوبه لاضافتها للمستخدم", "md")
 LIGHTNINGAa(msg.chat_id_, msg.id_, 1,Anwar, 1, 'md') 
 end
 if is_leader(msg) then
